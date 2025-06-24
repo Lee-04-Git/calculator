@@ -19,5 +19,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const displayEl = document.getElementById("display");
     const buttonGrid = document.querySelector(".button-grid");
     new CalculatorUI(displayEl, buttonGrid);
-  }, 1500);
+  }, 1000);
 });
