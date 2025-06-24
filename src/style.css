@@ -1,3 +1,4 @@
+/* Reset and base */
 * {
   box-sizing: border-box;
 }
@@ -13,15 +14,17 @@ body {
   margin: 0;
 }
 
+/* Calculator container */
 .calculator {
   background-color: #000;
   padding: 2rem;
   border-radius: 24px;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
 }
 
+/* Display */
 .display {
   background-color: #000;
   color: #fff;
@@ -37,19 +40,23 @@ body {
   justify-content: flex-end;
 }
 
+/* Button grid */
 .button-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
+/* Buttons */
 button {
   font-size: 1.5rem;
+  min-width: 60px;
   height: 60px;
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    transform 0.15s ease;
   user-select: none;
 }
 
@@ -57,39 +64,82 @@ button:active {
   transform: scale(0.95);
 }
 
-/* Function Buttons (AC, ±, %) */
+/* Function buttons */
 .btn-func {
-  background-color: #a3a3a3; /* bg-gray-400 */
-  color: #000; /* text-black */
+  background-color: #a3a3a3;
+  color: #000;
 }
 .btn-func:hover {
-  background-color: #c4c4c4; /* hover:bg-gray-300 */
+  background-color: #c4c4c4;
 }
 
-/* Number Buttons (0-9) and Decimal (.) */
+/* Number buttons */
 .btn-number {
-  background-color: #4b5563; /* bg-gray-600 */
-  color: #fff; /* text-white */
+  background-color: #4b5563;
+  color: #fff;
 }
 .btn-number:hover {
-  background-color: #6b7280; /* hover:bg-gray-500 */
+  background-color: #6b7280;
 }
 
-/* Operation Buttons (+, −, ×, ÷, =) */
+/* Operation buttons */
 .btn-op {
-  background-color: #f97316; /* bg-orange-500 */
-  color: #fff; /* text-white */
+  background-color: #f97316;
+  color: #fff;
 }
 .btn-op:hover {
-  background-color: #fb923c; /* hover:bg-orange-400 */
+  background-color: #fb923c;
 }
-/* Active state for operation buttons */
 .btn-op.active {
-  background-color: #fff; /* bg-white */
-  color: #f97316; /* text-orange-500 */
+  background-color: #fff;
+  color: #f97316;
 }
 
-/* Button that spans two columns (0) */
+/* Span zero button across two columns */
 .span-2 {
   grid-column: span 2;
+}
+
+/* Loader styles */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid white;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (min-width: 600px) {
+  button {
+    height: 70px;
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 350px) {
+  button {
+    min-width: 50px;
+    font-size: 1.25rem;
+  }
 }
